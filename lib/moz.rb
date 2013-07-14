@@ -1,6 +1,7 @@
 require 'base64'
 require 'cgi'
 require 'json'
+require 'net/http'
 require 'openssl'
 require 'open-uri'
 
