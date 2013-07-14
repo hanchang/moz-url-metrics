@@ -8,20 +8,23 @@ require 'open-uri'
 class Moz
   TITLE          = 1 # ut
   CANONICAL_URL  = 4 # uu
-  SUBDOMAIN      = 8 # ufq
-  ROOT_DOMAIN    = 16 # upl
+  # SUBDOMAIN      = 8 # ufq
+  # ROOT_DOMAIN    = 16 # upl
   EXTERNAL_LINKS = 32 # ueid
-  SUBDOMAIN_EXTERNAL_LINKS = 64 # feid
-  ROOT_DOMAIN_EXTERNAL_LINKS = 128 # peid
-  EQUITY_LINKS = 256 #ujid
-  SUBDOMAINS_LINKING = 512 # uifq
-  ROOT_DOMAINS_LINKING = 1024 # uipl
+  # SUBDOMAIN_EXTERNAL_LINKS = 64 # feid
+  # ROOT_DOMAIN_EXTERNAL_LINKS = 128 # peid
+  # EQUITY_LINKS = 256 #ujid
+  # SUBDOMAINS_LINKING = 512 # uifq
+  # ROOT_DOMAINS_LINKING = 1024 # uipl
   LINKS = 2048 # uid
-  SUBDOMAIN_SUBDOMAINS_LINKING = 4096 # fid
-  ROOT_DOMAIN_ROOT_DOMAINS_LINKING = 8192 # pid
+  # SUBDOMAIN_SUBDOMAINS_LINKING = 4096 # fid
+  # ROOT_DOMAIN_ROOT_DOMAINS_LINKING = 8192 # pid
   # TODO: The rest...
+  MOZ_RANK = 16384 # umrp / umrr
+  PAGE_AUTHORITY = 34359738368 # upa
+  DOMAIN_AUTHORITY = 68719476736 # pda
 
-  ALL_COLUMNS = 103079215104
+  INTERESTED_COLUMNS = EXTERNAL_LINKS + MOZ_RANK + PAGE_AUTHORITY + DOMAIN_AUTHORITY
 
   def mozRequestBatch(urls, access_id, secret_key, cols)
     expires = Time.now.to_i + 30
